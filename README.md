@@ -1,0 +1,1 @@
+EN EL GITIGNORE SE ESTA IGNORANDO EL app.json y el eas.json, pero se debe descomentar para compilar con eas build -p android !!!!!
