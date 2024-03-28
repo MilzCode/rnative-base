@@ -1,17 +1,37 @@
 import React from 'react'
-import { NativeRouter, Route, Routes } from 'react-router-native'
 import Home from './views/Home'
 import About from './views/About'
-import { Text, View } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { StatusBar } from 'expo-status-bar'
+
+const Stack = createNativeStackNavigator()
 
 const App = () => {
   return (
-    <NativeRouter>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </NativeRouter>
+    <NavigationContainer>
+      <StatusBar style="auto" />
+      <Stack.Navigator
+        // disable default header
+        screenOptions={{ headerShown: false }}
+        initialRouteName="Home"
+      >
+        <Stack.Screen
+          options={{
+            animation: 'slide_from_right'
+          }}
+          name="Home"
+          component={Home}
+        />
+        <Stack.Screen
+          options={{
+            animation: 'slide_from_right'
+          }}
+          name="About"
+          component={About}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 

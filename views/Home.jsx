@@ -1,13 +1,12 @@
-import { Text, View } from 'react-native'
-import { Link } from 'react-router-native'
+import { Text, TouchableHighlight, View } from 'react-native'
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <View className="flex flex-col min-h-full min-w-full bg-cyan-300 justify-center items-center">
       <Text className="mb-3">Home</Text>
-      <Link to="/about">
+      <TouchableHighlight onPress={() => navigation.navigate('About')}>
         <Text className="p-2 bg-blue-700 rounded text-white">To About</Text>
-      </Link>
+      </TouchableHighlight>
     </View>
   )
 }
